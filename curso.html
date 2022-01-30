@@ -362,7 +362,7 @@
 
   <p> Home -> Autenticação -> Inscrição </p>
 
-  <img src="Fluxo_Aplicacao">
+  <img src="../Fluxo_Aplicacao01.png">
 
   <strong>
 
@@ -419,7 +419,7 @@
 <p> Na hora de salvar o valor do produto no banco de dados, é aconselhável em centavos  </p>
 
 <code>
-  
+
   export const getServerSideProps: GetServerSideProps = async () => {
     const price = await stripe.prices.retrieve('price_1KNlwiD8PRPNTeZpxUYhEelo', {  
     expand: ['product'] 
@@ -436,6 +436,28 @@
     }
   }
 </code>
+
+
+<p>
+
+  03 Formas de  realizar uma chamada no react <br>
+
+ Client Side <br>
+ Server Side Rendering <br>
+ Static Site Generator <br>
+
+ Post de um blog: <br>
+
+ <ul>
+   <li> O conteúdo:  Server Side Rendering </li>
+   <li> Os comentários:  Client Side </li>
+ </ul>
+</p>
+
+<section> 
+  SSG: Static Site Generator = Estático <br>
+  SSR: Server-Side Rendering = Dinâmico <br>
+</section>
 
 </body>
 
