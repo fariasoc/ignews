@@ -405,6 +405,38 @@
 
   <strong> yarn add react-icons  </strong>
 
+<section> Criar uma conta no Stripe -> Criar um produto -> Pegar a chave secreta  </section>
+
+<section> Consequências da utilização do UseEffect  </section>
+<p> Layout Shift = Mudança no layout que é perceptiva pelo usuário e que causa uma certa sensação de estranheza 0</p>
+
+<section> Primeira utilização do conceito SSR (Server-sider Rendering ) </section>
+
+<p> yarn add stripe </p>
+
+<p> SDK: Software Development Kit  </p> 
+
+<p> Na hora de salvar o valor do produto no banco de dados, é aconselhável em centavos  </p>
+
+<code>
+  
+  export const getServerSideProps: GetServerSideProps = async () => {
+    const price = await stripe.prices.retrieve('price_1KNlwiD8PRPNTeZpxUYhEelo', {  
+    expand: ['product'] 
+    })
+  
+    const product = {
+      priceId: price.id,
+      amount: price.unit_amount / 100,
+    } 
+    return { 
+      props: {
+        nome: 'Celso'
+      }
+    }
+  }
+</code>
+
 </body>
 
 </html>
