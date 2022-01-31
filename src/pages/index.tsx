@@ -4,13 +4,6 @@ import { SubscribeButton } from '../components/SubscribeButton';
 import { stripe } from '../services/stripe';
 import styles from './home.module.scss';
 
-
-// 03 Formas de  realizar uma chamada no react
-
-// Client0-side
-// Server-side
-// Static 
-
 interface HomeProps {
   product: {
     priceId: string;
