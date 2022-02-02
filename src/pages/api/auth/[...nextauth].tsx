@@ -2,12 +2,10 @@ import NextAuth from 'next-auth'
 import GithubProvider from 'next-auth/providers/github'
 import { fauna } from '../../../services/fauna'
 import { query as q } from 'faunadb'
-import { signIn } from 'next-auth/react'
 
 export default NextAuth({
   secret: process.env.NEXTAUTH_SECRET,
-  // Configure one or more authentication providers
-  providers: [
+    providers: [
     GithubProvider({
       clientId: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
@@ -17,7 +15,6 @@ export default NextAuth({
         },
       },
     }),
-    // ...add more providers here
   ],
   callbacks: {
     async session({ session }) {
