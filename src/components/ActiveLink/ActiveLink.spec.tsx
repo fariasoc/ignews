@@ -3,7 +3,7 @@ import { ActiveLink } from '.'
 
 jest.mock('nex/router', () => {
   return {
-    useRouter(){
+    useRouter() {
       return {
         asPath: '/'
       }
