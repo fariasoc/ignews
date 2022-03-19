@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReactJS</title>
+</head>
+
+<body>
+
+  <h1>Início da confiuração do Projeto</h1>
+
+  <p> yarn init -y = Criar o arquivo package.json</p>
+
+  <p> yarn add react = Adicionar a bliblioteca React no projeto</p>
+
+  <p> yarn add react-dom = Árvore de elemento HTML <br> </p>
+
+
+
+  <p> DOM (Document Object Model) <br> <br>
+
+  <h3><b> Modelo de Objeto de Documentos </b> </h3>
+
+
+  <p> O Modelo de Documento por Objetos (do inglês Document Object Model - DOM) é uma convenção multiplataforma e
+    independente de linguagem de programação, fiscalizada pelo entidade World Wide Web Consortium (W3C), para
+    representação e interação com objetos em documentos HTML, XHTML e, XML.[1][2][3] Onde os elementos/nós de cada
+    documento são organizados em uma estrutura de árvore, chamada de Árvore DOM, que endereça e manipula via uso de
+    funções/métodos (interface pública) sobre os objetos, especificada de acordo com a interface de programação de
+    aplicações (API) utilizada, que oferece uma maneira padrão de se acessar cada elemento de um documento, criando
+    páginas altamente dinâmicas. </p>
+  </p>
+
+
+  <h1>Configurando o Babel</h1>
+
+  <p> O Babel é uma biblioteca que trabalha como um agente intermediador entre o nosso código e os navegadores.
+    Fornecendo os devidos parâmetros para que ambas extremidades falem a mesma língua</p>
+
+  <li> <a href="https://babeljs.io/"> BabelJS</a> </li>
+
+  <p> yarn add @babel/core @babel/cli @babel/preset-env -D </p>
+
+  <p> yarn add @babel/preset-react -D </p>
+
+  <h1>Configurando o Webpack</h1>
+
+  <p> webpack é um empacotador de módulo JavaScript de código aberto . [5] [6] [7] [8] É feito principalmente para
+    JavaScript, mas pode transformar ativos de front-end, como HTML, CSS e imagens, se os carregadores correspondentes
+    forem incluídos. [9] webpack pega módulos com dependências e gera ativos estáticos que representam esses módulos.
+    [10]
+
+    O Webpack pega as dependências e gera um gráfico de dependências, permitindo que os desenvolvedores da web usem uma
+    abordagem modular para seus propósitos de desenvolvimento de aplicativos da web. Ele pode ser usado na linha de
+    comando ou pode ser configurado usando um arquivo de configuração denominado webpack.config.js . Este arquivo é
+    usado para definir regras, plug-ins, etc., para um projeto. (o webpack é altamente extensível por meio de regras que
+    permitem aos desenvolvedores escrever tarefas personalizadas que desejam realizar ao agrupar arquivos.)
+
+    Node.js é necessário para usar o webpack.
+
+    webpack fornece código sob demanda usando a divisão de código moniker . O Comitê Técnico 39 para ECMAScript está
+    trabalhando na padronização de uma função que carrega código adicional: "proposta-dinâmica-importação". [11] </p>
+
+  <li> <a href="https://webpack.js.org/"> Webpack </a> </li>
+
+  <ul> yarn add webpack webpack-cli webpack-dev-server -D </ul>
+
+  <ul> webpack </ul>
+  <ul> webpack-cli </ul>
+  <ul> webpack-dev-server </ul>
+
+  <p> Criar arquivo para o Webpack </p>
+
+  <ul> webpack.config.js </ul>
+
+  <p>
+
+    const path = require('path')
+
+    module.exports = {
+    entry: path.resolve(__dirname, 'src', 'index.jsx'),
+    output: {
+    path: path.resolve(__dirname,'dist'),
+    filename: 'bundle.js'
+    },
+    resolve: {
+    extensions: ['.js', '.jsx'],
+    },
+    module: {
+    rules: [
+    {
+    test: /\.jsx$/,
+    exclude: /node_modules/,
+    use: 'babel-loader'
+    }
+    ],
+    }
+    };
+
+  </p>
+
+
+  <p> yarn add babel-loader -D </p>
+
+  <p> Responsável por fazer a integração entre o babel e o webpack </p>
+
+
+  <h4> Criação do arquivo App.jsx</h4>
+
+  <p>
+
+    export function App(){
+    return
+  <h1>Hello World</h1>
+  }
+
+  </p>
+
+  <p>yarn webpack </p>
+
+  <h1> Estrutura do ReactJS </h1>
+
+  <p>index.html</p>
+
+  <p>div#root</p>
+
+  <p> index.jsx
+
+  <p>
+    import { render } from 'react-dom';
+    import { App } from './App';
+
+    render(
+  <h1>Teste</h1>, document.getElementById('root') )
+  </p>
+  </p>
+
+  <h1> Atualização de arquivos </h1>
+
+  <h3>dist</h3>
+
+  <ul> public <br>
+
+    <p> Código index.html *************** </p>
+
+  </ul>
+
+  <ul> src <br>
+
+    <p> Código App.jsx *************** </p>
+    <p>
+      export function App(){
+      return
+    <h1>Hello World</h1>
+    }
+    </p>
+
+    <p> Código index.jsx *************** </p>
+    <p>
+      import { render } from 'react-dom';
+      import { App } from './App';
+
+      render(
+      <App />, document.getElementById('root'))
+    </p>
+
+  </ul>
+
+  <h1> HTMl Estático </h1>
+
+  <p>
+    yarn add html-webpack-plugin -D
+  </p>
+
+  <p> automatizar o processo de bundle</p>
+  <p>
+    yarn add webpack-dev-server -D
+  </p>
+
+  <p> yarn webpack serve </p>
+
+  <h3>Source Maps</h3>
+
+  <h2> yarn add cross env - D </h2>
+
+  Configurando variáveis de ambiente
+
+  <h4>arn add style-loader css-loader </h4>
+
+  <h1> Sass | Pré processador de CSS </h1>
+
+
+  yarn add sass-loader -D
+  yarn add node-sass -D
+
+  <p> Estado do componente </p>
+
+  <p> tag <> utilizada para criar um fragmento "imperceptível no React Native. </p>
+  <br>
+
+  // Hook -> Gancho <br>
+
+  // let it change: "deixe isso mudar"<br>
+
+  // imutabilidade: inalterável | metodologia para inserir um novo valor em uma variável<br>
+  // usuarios = ['diego3g', 'dieegosf', 'danileao']<br>
+  // usuarios.push('rafacamarda')<br>
+
+  // novoUsuarios = [ ... usuarios, 'rafacamarda' ]<br>
+
+  <section> React Fast Refresh </section>t
+
+  <section> Módulo 03 </section>
+
+  <p> Consumo da API do Git Hub </p>
+
+  <section> TypeScript </section>
+
+
+  <p> Type ou Interface?? </p>
+
+  <p>Iferência de tipo</p>
+
+  <h6> yarn add typescript -D </h6>
+
+  <h6> yarn tsc --init </h6>
+
+  <h6> yarn add @babel/preset-typescript - D </h6>
+
+  <h6> yarn add @types/react-dom - D </h6>
+
+  <h6> yarn add @types/react -D</h6>
+
+  <br> ********************************************* <br>
+
+  Resumo desse capítulo <br>
+
+  Configuração da estrutura de um projeto React <br>
+
+  Webpack;<br>
+  Babel; <br>
+  Typescript;<br>
+  Sass;<br>
+  Sourcemaps; <br>
+  Ambiente de desenvolvimento e produção<br>
+  Importação de arquivo css <br>
+  Componentização<br>
+  Estado do componente <br>
+  Imutabilidade <br>
+  Estilização <br>
+  Hook's <br>
+  UseEffect <br>
+  Listagem dos respositórios do HTML <br>
+  Propriedade "Key" <br>
+  Tipagem dos componentes <br>
+  React Dev Tools <br>
+
+  <br> ********************************************* <br>
+
+  Capítulo 02
+
+  Frontend
+
+  <section> Create React App </section>
+
+  <p> A configuração do Webpack, babel e vários outros pacotes, estão dentro dos scripts. <br>
+    E isso fica fora do nosso controle
+  </p>
+
+  <a href="https://create-react-app.dev/"> Site oficial </a>
+  <link rel="stylesheet" href="https://create-react-app.dev/">
+
+  <p>yarn create react-app my-app</p>
+
+  <p> yarn create react-app dtmoney --template typescript </p>
+
+  <h3> A diferença entre o export default x export </h3>
+
+  <p> export default = O nome é definido na importação </p>
+
+  <p> export default = O nome é definido na importação </p>
+
+  <p> export = o nome do componente precisa ser respeitado, isso é um "anti-erro" <br>
+    Tem como burlar isso obviamente, mas isso é claramente uma auto sabotagem e isso fica a critério do programador.
+    <br>
+    O auto import do VSCode funciona melhor com o 'export', o contrário acontece com o 'export default'
+  </p>
+
+  <p> Conclusão: Utilizar 'export' é mais seguro </p>
+
+  <section> React-Scripts Eject</section>
+
+  <p>
+    Uma vez executado, ele não tem mais volta.
+    Por isso é bom estar sempre com o git hub no jeito
+  </p>
+
+  <section> Customize CRA </section>
+
+  <section>
+    yarn add styled-components
+  </section>
+
+  <section>
+
+    yarn add @types/styled-components -D
+
+  </section>
+
+  <section>
+
+    03 tipos de API's ficticias
+
+  </section>
+
+  <p> json-server <br> </p>
+
+  <p> miragejs: CRUD completo <br> </p>
+
+  <p> msw - Mock Service Worker <br> </p>
+
+  ************************************
+
+  <section> Configurando o mirageJS</section>
+
+  <p> yarn add mirageJS </p>
+
+  <section> Configuração de um servidor HTTP </section>
+
+  <p>Axios </p>
+
+  <p> yarn add axios </p>
+
+  <p> yarn add react-modal </p>
+
+  <p> yarn add @types/react-modal -D </p>
+
+  <p> yarn add polished </p>
+
+  <section> Definição do "Contexto" </section>
+
+  <p>
+    prop drilling
+  </p>
+
+  <p> Compartilhamento de estado entre vários componentes de uma aplicação</p>
+
+  <section> Módulo 03 </section>
+
+  <p> Aplicação com: <br> <br> Stripe + FaunaDB ou DynamoDB + Prismic CMS + Github(OAuth)</br></p>
+
+  <p> Aplicações serverless </p>
+
+  <p> CMS = Content Management System </p>
+
+  <p> Exemplos de CMS </p>
+
+  <section> Fluxo da aplicação </section>
+
+  <p> Home -> Autenticação -> Inscrição </p>
+
+  <img src="../Fluxo_Aplicacao01.png">
+
+  <strong>
+
+    SPA Single Page Application
+
+    Server Side Rendering
+
+  </strong>
+
+  <a href="https://vercel.com/">Vercel</a>
+
+  <h1> Estrutura do NextJS </h1>
+
+  <p> yarn create next-app ignews </p>
+
+  <p> O NextJS utiliza um sistema chamado: Files System Rooting -> Roteamento por nome de arquivo </p>
+
+  <section> yarn add typescript @types/react @types/node -D </section>
+
+  <strong> Scoped CSS - Css aplicado ao escopo de um único componente </strong>
+
+  <p>yarn add sass</p>
+
+  <section>
+    <br> <br>
+
+    O componente MyApp que fica no arquivo "_app.tsx" é o que fica por volta de tudo, é algo semelhante ao que acontece com o :root
+  </section>
+
+
+  <section>
+    <br> <br>
+
+    Já o arquivo "_document.tsx" pode ser comparado ao que acontece com o "index.html"
+    
+  </section>
+
+  <strong> Chakra UI </strong>
+  <a href="https://chakra-ui.com/"> Site</a>
+
+  <strong> yarn add react-icons  </strong>
+
+<section> Criar uma conta no Stripe -> Criar um produto -> Pegar a chave secreta  </section>
+
+<section> Consequências da utilização do UseEffect  </section>
+<p> Layout Shift = Mudança no layout que é perceptiva pelo usuário e que causa uma certa sensação de estranheza 0</p>
+
+<section> Primeira utilização do conceito SSR (Server-sider Rendering ) </section>
+
+<p> yarn add stripe </p>
+
+<p> SDK: Software Development Kit  </p> 
+
+<p> Na hora de salvar o valor do produto no banco de dados, é aconselhável em centavos  </p>
+
+<code>
+
+  export const getServerSideProps: GetServerSideProps = async () => {
+    const price = await stripe.prices.retrieve('price_1KNlwiD8PRPNTeZpxUYhEelo', {  
+    expand: ['product'] 
+    })
+  
+    const product = {
+      priceId: price.id,
+      amount: price.unit_amount / 100,
+    } 
+    return { 
+      props: {
+        nome: 'Celso'
+      }
+    }
+  }
+</code>
+
+
+<p>
+
+  03 Formas de  realizar uma chamada no react <br>
+
+ Client Side <br>
+ Server Side Rendering <br>
+ Static Site Generator <br>
+
+ Post de um blog: <br>
+
+ <ul>
+   <li> O conteúdo:  Server Side Rendering </li>
+   <li> Os comentários:  Client Side </li>
+ </ul>
+</p>
+
+<section> 
+  SSG: Static Site Generator = Estático <br>
+  SSR: Server-Side Rendering = Dinâmico <br>
+</section>
+
+<section> 
+  Desenvolvimento de 02 features <br><br>
+  SSR: Server-Side Rendering = Dinâmico <br>
+
+  <ul>
+    <li> Autenticação utilizando o GitHub </li>
+    <li> Inscrição do usuário utilizando o Stripe </li>
+  </ul>
+
+</section>
+
+<section>
+  API Routes no Next.js: Conceito de Serverless  <br>
+  
+  Serverless: O que significa? 
+</section>
+
+<section>
+  Formas de autenticação  <br>
+  
+    <ul>
+    <li> JWT (Salvo no storage) </li>
+    <li> Next Auth (Utilizando alguma rede terceira: Google, Github) </li>
+    <li> BasSCognito, Auth0, Firebase </li>
+  </ul>
+</section>
+
+<section> Nessa aplicação, usaremos o 
+ <a href="https://next-auth.js.org/"> Next Auth </a> 
+</section>
+
+<p> yarn addn next-auth + yarn add @types/next-auth -D </p>
+
+<a href="https://next-auth.js.org/getting-started/example">Exemplo do código </a>
+
+<section> Conectando a aplicação ao Banco de Dados </section>
+
+<p> Fauna DB -> Criar uma base de dados -> Gerar uma chave na aba de segurança </p>
+
+<p> yarn add faunadb </p>
+
+<strong> As consultas devem ocorrer dentro das API's, jamais na parte de front-end, componentes e etc. </strong>
+
+<section>
+  03 lugares que podemos utilizar as credenciais secretas: 
+
+  <ul>
+    <li> getServerSideProps (SSR) </li>
+    <li> getStaticProps (SSG) </li>
+    <li> API routes </li>
+  </ul>
+</section>
+
+<p> yarn add axios </p>
+
+<p> yarn add @stripe/stripe-js </p>
+
+<section> JAMStack </section>
+
+<p> JAM = JavaScript API Markup </p>
+
+<section> CMS Content Management System </section>
+
+<strong> Wordpress </strong>
+<strong> Drupal </strong>
+<strong> Joomla </strong>
+<strong> Magento </strong>
+
+<strong> Headless CMS ( Painel de aministração + API HTTP, GraphQL, SDK) </strong>
+
+<strong> Strapi </strong>
+<strong> Ghost (Blog) </strong>
+<strong> Keystone </strong>
+
+<strong> GraphCMS </strong>
+<strong> Prismic CMS </strong>
+<strong> Contentful </strong>
+
+<strong> Shopify </strong>
+<strong> Saleor </strong>
+
+
+<section> Configuração da Dashboard no Prismic </section>
+
+<p> yarn add @prismicio/client </p>
+
+<p>yarn add prismic-dom</p>
+
+<p>yarn add @types/prismic-dom -D</p>
+
+<strong> Estratégias de Geração de páginas no Next </strong>
+
+<p> Gerar as páginas estáticas durante a build </p>
+<p> Gerar as páginas estáticas no primeiro acesso </p>
+<p> Mix das duas opções acimas </p>
+
+<p>********************************************************************************</p>
+
+<strong> Capítulo 04 </strong>
+
+<ul> Evolução
+  <li> Tailwindcss </li>
+  <li> Theme UI </li>
+  <li> Chakra UI </li>
+  <li> Frammer Motion </li>
+  <li> EmotionCSS</li>
+</ul>
+
+
+<ul>
+  <li> Chakra UI </li>
+
+  <li> O que é interface declarativa? </li>
+</ul>
+
+<p> yarn create next-app dashgo </p>
+
+<p> yarn add typescript @types/react @types/node -D </p>
+
+<p> yarn add @chakra-ui/react @chakra-ui/core </p>
+
+<p> yarn add react-icons </p>
+
+<p> ApexChart.JS</p>
+
+<p> yarn add apexcharts react-apexcharts </p>
+
+<section >
+  <strong>
+    Formas de criar um formulários no React
+  </strong>
+</section>
+
+<ul>
+  <li> <b> Controlled Components </b> = Monitora a digitação dentro do input e salva isso dentro do Estado </li>
+  <li> <b> Uncontrolled Components Imperativa </b> = Quando é possível encontrar o valor de um componente somente quando se faz necessário, caso contrário, os valores não são armazenados em uma variável. </li>
+</ul>
+
+<ul> Conceitos correlatos
+ <li> Imperativa x Declarativa </li>
+</ul>
+
+<ul> Bibliotecas para formulários 
+  <li> Formik </li>
+  <li> React Hook Form </li>
+  <li> Unform | RocketSeat </li>
+ </ul>
+
+<p> yarn add react-hook-form </p> 
+
+<p>
+  <b> yup </b> = Dead Simple Object schema validation | Validação simples de esquema de objeto morto
+</p>
+
+<p> yarn add yup </p>
+
+<strong> Data Fetching no React </strong>
+
+<p> React Query </p>
+
+<p> React Query </p>
+
+<strong> yarn add miragejs -D </strong>
+
+ <strong>yarn add faker -D</strong>
+
+ <strong> yarn add react-query </strong>
+ <strong> Stale While Revalidate: Obsoleto enquanto revalida </strong>
+ <strong> Revalidate on Focus: Revalidação perante ao foco do usuário na página </strong>
+
+ <strong> Configurando o DevTools </strong>
+
+ <strong> Configurando o Axios </strong>
+
+ <p> yarn add axios </p>
+
+ <p> prop drilling  </p>
+
+ <strong> Mutations </strong>
+
+ <p> API REST  </p>
+
+ <p> Autenticação e Autorização </p>
+
+ <p> Qual é o melhor método de autenticação </p>
+
+ <p> Clonagem do repositório do Github </p>
+
+ <p> git clone git@github.com:rocketseat-education/ignite-reactjs-auth-backend.git </p>
+  <p> Verificar o motivo desse clone não ter dado certo </p>
+
+
+  <p> É necessário ter uma chave SSH pública para poder clonar o repositório, logo, clonamos o repositório por HTTPS</p>
+
+  <strong>https://github.com/rocketseat-education/ignite-reactjs-auth-backend.git</strong>
+
+  <p> <b> yarn </b> - Instalação das dependências </p>
+
+  <p> http://localhost:3333/me </p>
+
+  <section> Criando uma aplicação exclusiva para autenticação </section>
+
+  <b> yarn create next-app nextauth </b>
+
+  <p> React Native</p>
+
+  <p> yarn add axios  </p>
+
+  <p> Algoritmo HS256 </p>
+
+  <p> jwt.io </p>
+
+  <p> Header </p>
+  <p> Payload </p>
+  <p> Verificação da assinatura </p>
+
+  <section>
+    <ul>
+      localStorage: Só existe no lado do cliente, Nextauth utiliza Server Side Rendering
+    </ul>
+    <li>
+      sessionStorage: não fica disponível em outras sessões
+    </li>
+    <li>
+      Cookies: método antigo e porém, funcional 
+    </li>
+  </section>
+
+  <p> yarn add nookies </p>
+
+  <p>  yarn add jwt-decode </p>
+
+  <section> <h1> Performance </h1>  </section>
+  <section> Renderizações no React </section>
+
+  <ul>
+    <li> Renderização de pai para filho </li>
+    <li> Propriedade </li>
+    <li> Hooks (useState, useContext, useReducer) </li>
+  </ul>
+
+  <strong> Fluxo de renderização </strong>
+
+  <p> 1º Gerar uma nova versão do componente que precisa ser renderizado; </p>
+  <p> 2º Comparar essa nova versão com a versão anterior já salva na página; </p>
+  <p> <b> 3º Se houverem alterações </b>, o React "renderiza" essa nova versão em tela; </p>
+
+  <p> O React utiliza o algoritmo de Reconciliação e Diferenciação "Diffing" </p>
+
+  <a href="pt-br.reactjs.org/docs/reconciliation.html"></a>
+
+  <p> yarn add json-server -D </p>
+
+
+  <section>Fluxo de renderização no React</section>
+
+  <p>01 - Criar uma nova versão do componente</p>
+  <p>02 - Comparar com a versão anterior</p>
+  <p>03 - Se houverem alterações, vai atualizar o que alterou </p>
+
+  <p>Shallow Compare -> Comparação Rasa</p>
+
+  <p> {} === { } -> False <br> Igualdade referencial </p>
+
+  <strong> Em quais situações devemos utilizar o Memo? </strong>
+
+  <p> 01 - Pure Functional Components: Paradigma da programação funcional  </p>
+
+  <p> 02 - Renders too often: Componentes que são renderizados inúmeras vezes </p>
+
+  <p> 03 - Re-renders with same props: Renderização de um componente com as mesmas propriedades </p>
+
+  <p> 04 - Componentes médios e grandes  </p>
+
+  <p> Funções pura: Com a inserção dos mesmos parâmetros, o resultado será sempre o mesmo </p>
+
+  <section> useMemo e useCallback </section>
+
+  <p>useMemo: Quando queremos memorizar um "valor" <br> Evitar que alguma coisa que ocupa muito processamento seja refeito sempre que um componente seja renderizado </p>
+
+  <p> O useMemo deve ser utilizado para <b> Cálculos pesados </b> e <b> igualdade referencial, quando repassamos uma informação para um componente filho </b> </p>
+  <p> Igualdade referencial: Quando duas variáveis ocupam o mesmo lugar na memória</p>
+
+  <p>useCallback: Quando queremos memorizar uma função </p>
+
+  <p> Code Splitting </p>
+
+  <p> yarn add react-virtualized </p>
+
+  <p> yarn add @types/react-virtualized -D </p>
+
+  <p> yarn add lodash + yarn add @types/lodash -D </p>
+
+  <p> yarn add @next/bundle-analyzer </p>
+
+  <p> yarn add cross-env -D </p>
+
+  <section> Testes no Front-end </section>
+  <ul>
+    <li> Teste unitário: Teste de um componente de forma isolada da aplicação | Geralmente o teste unitário irá testar uma função </li>
+    <li> Teste de integração: Teste de funcionalidades das funções </li>
+    <li> Teste E2E Ponta a Ponta: Simulação da utilização de um usuário </li>
+  </ul>
+
+  <p> yarn add jest jest-dom @testing-library/jest-dom @testing-library/dom @testing-library/react babel-jest -D </p>
+
+  <p> yarn add identity-obj-proxy@3.0.0 -D </p>
+
+
+
+</body>
+
+
+</html>
